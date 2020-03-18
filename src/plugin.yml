@@ -1,0 +1,9 @@
+name: Captcha
+version: 0.0.1
+main: riku32.captcha.Captcha
+description: A captcha plugin that uses maps
+
+permissions:
+  captcha.bypass:
+    desciption: Allows you to bypass the captcha.
+    default: op
