@@ -34,7 +34,13 @@ public class MapEvent implements Listener {
             public void render(MapView mapView, MapCanvas mapCanvas, Player player) {
                 CaptchaPlayer p = Captcha.getPlayerManager().getPlayer(player);
                 if (p == null) {
-                    old.forEach(map::addRenderer);
+                    // This is commented out because
+                    // Render method overrides the renderers where the original method loops the renderers
+                    // https://hub.spigotmc.org/stash/projects/SPIGOT/repos/craftbukkit/browse/src/main/java/org/bukkit/craftbukkit/map/CraftMapView.java
+                    // That causes a Concurrent Modification Exception
+                    // Apparently commenting this out prevents the error and everything works
+
+                    // old.forEach(map::addRenderer);
                 } else {
                     mapCanvas.drawImage(0, 0, p.render());
                 }
